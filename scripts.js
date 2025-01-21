@@ -1,7 +1,10 @@
 // Cotação de moedas do dia.
-const USD = 4.87;
-const EUR = 5.32;
-const GBP = 6.08;
+const USD = 6.03;
+const EUR = 6.28;
+const GBP = 7.43;
+const JPY = 0.04;
+const ARS = 0.01;
+const CNY = 0.83;
 
 // Obtendo os elementos do formulário.
 const form = document.querySelector("form");
@@ -31,6 +34,15 @@ form.onsubmit = (event) => {
     case "GBP":
       convertCurrency(amount.value, GBP, "£");
       break;
+    case "JPY":
+      convertCurrency(amount.value, JPY, "¥");
+      break;
+    case "ARS":
+      convertCurrency(amount.value, ARS, "$");
+      break;
+      case "CNY":
+        convertCurrency(amount.value, CNY, "¥");
+        break;
   }
 };
 
@@ -67,7 +79,7 @@ function convertCurrency(amount, price, symbol) {
 
 // Formata a moeda em Real Brasileiro.
 function formatCurrencyBRL(value) {
-  // Converte para número para utilizar o toLocal1string para formatar no padrão BRL (R$ 00,00).
+  // Converte para número para utilizar o toLocalString para formatar no padrão BRL (R$ 00,00).
   return Number(value).toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
